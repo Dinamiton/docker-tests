@@ -1,0 +1,35 @@
+
+version: "2"
+
+
+services:
+  php:
+    image: custom-php
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    ports:
+      - 80:80
+    volumes:
+      - ./src:/var/www/html/
+
+  database:
+    image: custom-mysql
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    ports:
+      - 3307:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1212123
+      MYSQL_DATABASE: db
+      MYSQL_USER: pedrom
+      MYSQL_PASSWORD: pw1544
+
+volumes:
+  mysql-data:
+
+
+  
