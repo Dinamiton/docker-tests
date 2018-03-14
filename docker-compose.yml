@@ -3,8 +3,9 @@ version: "2"
 
 
 services:
-  php:
+  php7:
     image: custom-php
+    container_name: php7
     build:
       context: .
       dockerfile: Dockerfile-php
@@ -15,6 +16,7 @@ services:
 
   database:
     image: custom-mysql
+    container_name: database
     build:
       context: .
       dockerfile: Dockerfile-mysql
